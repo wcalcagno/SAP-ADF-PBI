@@ -1,0 +1,33 @@
+{
+	"name": "DS_ORIGEN_QUERY_2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sap_server",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Origenes"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "BNAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PERSNUMBER",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NAME_TEXT",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "gta",
+			"table": "KNB1"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
