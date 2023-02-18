@@ -2,7 +2,7 @@
 	"name": "DIM_PRODUCTOS_GTA_MARA",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SqlServer1",
+			"referenceName": "ls_sap_server",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

@@ -2,7 +2,7 @@
 	"name": "DIM_PROV_GTA_LFA1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SqlServer1",
+			"referenceName": "ls_sap_server",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

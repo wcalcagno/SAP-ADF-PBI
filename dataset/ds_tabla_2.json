@@ -2,7 +2,7 @@
 	"name": "ds_tabla_2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SqlServer1",
+			"referenceName": "ls_sap_server",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
