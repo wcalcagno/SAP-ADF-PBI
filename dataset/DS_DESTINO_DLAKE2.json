@@ -13,8 +13,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "datalimpia.csv",
 				"folderPath": "instructor",
-				"fileSystem": "raw"
+				"fileSystem": "refined"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
