@@ -7,7 +7,7 @@
 		"typeProperties": {
 			"connectionString": "integrated security=True;data source=WINSRVIDES;initial catalog=GTA",
 			"userName": "WINSRVIDES\\gtaadm",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjMGZlNjQ1MS0wODBjLTQwNDAtYmU3NC0zOWE0Yzg4Njg3NWIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJmNGE5OTMxYS1kNmQ1LTRhNjAtYTE2OS0wMjU4YTYxOTg1OTQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "IR-SAP-dyanalias",
