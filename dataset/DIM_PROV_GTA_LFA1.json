@@ -1,0 +1,30 @@
+{
+	"name": "DIM_PROV_GTA_LFA1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "BNAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PERSNUMBER",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NAME_TEXT",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "gta",
+			"table": "LFA1"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
