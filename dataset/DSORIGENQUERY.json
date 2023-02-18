@@ -1,9 +1,12 @@
 {
-	"name": "DS_SAP_V01",
+	"name": "DSORIGENQUERY",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_sap_server",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Origenes"
 		},
 		"annotations": [],
 		"type": "SqlServerTable",

@@ -1,0 +1,36 @@
+{
+	"name": "DS_ORIGEN_QUERY",
+	"properties": {
+		"activities": [
+			{
+				"name": "QUERY_SAP_TO_DATALAKE",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT\n    DT.FKDAT AS FECHA_FACTURACION,\n    DT.MENGE AS CANTIDAD,\n    DT.FAKWR AS MONTO_FACTURADO,\n    LFA1.NAME1 AS NOMBRE_PROVEEDOR\nFROM\n    gta.INV_HEADER HD\n    INNER JOIN gta.INVOICING DT ON HD.FPLNR = DT.FPLNR\n    LEFT JOIN gta.KNB1 KNB1 ON DT.BUKRS = KNB1.BUKRS\n    LEFT JOIN gta.LFA1 LFA1 ON DT.LIFNR = LFA1.LIFNR",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "DSORIGENQUERY",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
