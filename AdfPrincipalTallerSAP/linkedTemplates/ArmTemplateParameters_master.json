@@ -5,12 +5,6 @@
 		"factoryName": {
 			"value": "AdfPrincipalTallerSAP"
 		},
-		"SqlServer1_connectionString": {
-			"value": "Integrated Security=True;Data Source=WINSRVIDES;Initial Catalog=GTA"
-		},
-		"SqlServer1_password": {
-			"value": ""
-		},
 		"ls_datalake_accountKey": {
 			"value": ""
 		},
@@ -19,9 +13,6 @@
 		},
 		"ls_sap_server_password": {
 			"value": ""
-		},
-		"SqlServer1_properties_typeProperties_userName": {
-			"value": "WINSRVIDES\\gtaadm"
 		},
 		"ls_datalake_properties_typeProperties_url": {
 			"value": "https://tallersap.dfs.core.windows.net/"

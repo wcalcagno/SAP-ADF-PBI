@@ -11,15 +11,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_datalake'"
 		},
-		"SqlServer1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'SqlServer1'",
-			"defaultValue": "Integrated Security=True;Data Source=WINSRVIDES;Initial Catalog=GTA"
-		},
-		"SqlServer1_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'SqlServer1'"
-		},
 		"ls_sap_server_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_sap_server'",
@@ -32,10 +23,6 @@
 		"ls_datalake_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://tallersap.dfs.core.windows.net/"
-		},
-		"SqlServer1_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "WINSRVIDES\\gtaadm"
 		},
 		"ls_sap_server_properties_typeProperties_userName": {
 			"type": "string",
@@ -129,30 +116,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_datalake')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SqlServer1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('SqlServer1_connectionString')]",
-					"userName": "[parameters('SqlServer1_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('SqlServer1_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "IR-SAP-dyanalias",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/IR-SAP-dyanalias')]"
 			]
 		},
 		{
