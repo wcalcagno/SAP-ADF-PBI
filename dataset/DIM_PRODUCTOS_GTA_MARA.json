@@ -1,0 +1,30 @@
+{
+	"name": "DIM_PRODUCTOS_GTA_MARA",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "BNAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PERSNUMBER",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NAME_TEXT",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "gta",
+			"table": "MARA"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

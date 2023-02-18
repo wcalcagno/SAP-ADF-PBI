@@ -1,0 +1,9 @@
+{
+	"name": "AdfPrincipalTallerSAP",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8aa1e164-26c2-4e23-bb96-4315db032752",
+		"tenantId": "54c99288-570f-4357-8ec5-86bd173a4960"
+	}
+}
