@@ -21,12 +21,14 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "ParquetSink",
+						"type": "DelimitedTextSink",
 						"storeSettings": {
 							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
-							"type": "ParquetWriteSettings"
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
 						}
 					},
 					"enableStaging": false,
@@ -40,9 +42,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "MANDT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 1
 								}
 							},
 							{
@@ -52,9 +54,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "LIFNR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 2
 								}
 							},
 							{
@@ -64,9 +66,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "LAND1",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 3
 								}
 							},
 							{
@@ -76,9 +78,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "NAME1",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 4
 								}
 							},
 							{
@@ -88,9 +90,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "NAME2",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 5
 								}
 							},
 							{
@@ -100,9 +102,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "NAME3",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 6
 								}
 							},
 							{
@@ -112,9 +114,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "NAME4",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 7
 								}
 							},
 							{
@@ -124,9 +126,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "ORT01",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 8
 								}
 							},
 							{
@@ -136,9 +138,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "ORT02",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 9
 								}
 							},
 							{
@@ -148,9 +150,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PFACH",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 10
 								}
 							},
 							{
@@ -160,9 +162,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSTL2",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 11
 								}
 							},
 							{
@@ -172,9 +174,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSTLZ",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 12
 								}
 							},
 							{
@@ -184,9 +186,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "REGIO",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 13
 								}
 							},
 							{
@@ -196,9 +198,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SORTL",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 14
 								}
 							},
 							{
@@ -208,9 +210,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STRAS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 15
 								}
 							},
 							{
@@ -220,9 +222,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "ADRNR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 16
 								}
 							},
 							{
@@ -232,9 +234,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "MCOD1",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 17
 								}
 							},
 							{
@@ -244,9 +246,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "MCOD2",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 18
 								}
 							},
 							{
@@ -256,9 +258,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "MCOD3",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 19
 								}
 							},
 							{
@@ -268,9 +270,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "ANRED",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 20
 								}
 							},
 							{
@@ -280,9 +282,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "BAHNS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 21
 								}
 							},
 							{
@@ -292,9 +294,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "BBBNR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 22
 								}
 							},
 							{
@@ -304,9 +306,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "BBSNR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 23
 								}
 							},
 							{
@@ -316,9 +318,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "BEGRU",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 24
 								}
 							},
 							{
@@ -328,9 +330,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "BRSCH",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 25
 								}
 							},
 							{
@@ -340,9 +342,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "BUBKZ",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 26
 								}
 							},
 							{
@@ -352,9 +354,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "DATLT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 27
 								}
 							},
 							{
@@ -364,9 +366,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "DTAMS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 28
 								}
 							},
 							{
@@ -376,9 +378,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "DTAWS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 29
 								}
 							},
 							{
@@ -388,9 +390,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "ERDAT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 30
 								}
 							},
 							{
@@ -400,9 +402,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "ERNAM",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 31
 								}
 							},
 							{
@@ -412,9 +414,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "ESRNR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 32
 								}
 							},
 							{
@@ -424,9 +426,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "KONZS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 33
 								}
 							},
 							{
@@ -436,9 +438,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "KTOKK",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 34
 								}
 							},
 							{
@@ -448,9 +450,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "KUNNR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 35
 								}
 							},
 							{
@@ -460,9 +462,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "LNRZA",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 36
 								}
 							},
 							{
@@ -472,9 +474,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "LOEVM",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 37
 								}
 							},
 							{
@@ -484,9 +486,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SPERR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 38
 								}
 							},
 							{
@@ -496,9 +498,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SPERM",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 39
 								}
 							},
 							{
@@ -508,9 +510,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SPRAS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 40
 								}
 							},
 							{
@@ -520,9 +522,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STCD1",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 41
 								}
 							},
 							{
@@ -532,9 +534,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STCD2",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 42
 								}
 							},
 							{
@@ -544,9 +546,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STKZA",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 43
 								}
 							},
 							{
@@ -556,9 +558,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STKZU",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 44
 								}
 							},
 							{
@@ -568,9 +570,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TELBX",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 45
 								}
 							},
 							{
@@ -580,9 +582,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TELF1",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 46
 								}
 							},
 							{
@@ -592,9 +594,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TELF2",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 47
 								}
 							},
 							{
@@ -604,9 +606,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TELFX",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 48
 								}
 							},
 							{
@@ -616,9 +618,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TELTX",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 49
 								}
 							},
 							{
@@ -628,9 +630,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TELX1",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 50
 								}
 							},
 							{
@@ -640,9 +642,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "XCPDK",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 51
 								}
 							},
 							{
@@ -652,9 +654,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "XZEMP",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 52
 								}
 							},
 							{
@@ -664,9 +666,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "VBUND",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 53
 								}
 							},
 							{
@@ -676,9 +678,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "FISKN",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 54
 								}
 							},
 							{
@@ -688,9 +690,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STCEG",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 55
 								}
 							},
 							{
@@ -700,9 +702,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STKZN",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 56
 								}
 							},
 							{
@@ -712,9 +714,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SPERQ",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 57
 								}
 							},
 							{
@@ -724,9 +726,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "GBORT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 58
 								}
 							},
 							{
@@ -736,9 +738,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "GBDAT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 59
 								}
 							},
 							{
@@ -748,9 +750,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SEXKZ",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 60
 								}
 							},
 							{
@@ -760,9 +762,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "KRAUS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 61
 								}
 							},
 							{
@@ -772,9 +774,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "REVDB",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 62
 								}
 							},
 							{
@@ -784,9 +786,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "QSSYS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 63
 								}
 							},
 							{
@@ -796,9 +798,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "KTOCK",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 64
 								}
 							},
 							{
@@ -808,9 +810,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PFORT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 65
 								}
 							},
 							{
@@ -820,9 +822,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "WERKS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 66
 								}
 							},
 							{
@@ -832,9 +834,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "LTSNA",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 67
 								}
 							},
 							{
@@ -844,9 +846,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "WERKR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 68
 								}
 							},
 							{
@@ -856,9 +858,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PLKAL",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 69
 								}
 							},
 							{
@@ -868,9 +870,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "DUEFL",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 70
 								}
 							},
 							{
@@ -880,9 +882,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TXJCD",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 71
 								}
 							},
 							{
@@ -892,9 +894,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SPERZ",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 72
 								}
 							},
 							{
@@ -904,9 +906,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SCACD",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 73
 								}
 							},
 							{
@@ -916,9 +918,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SFRGR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 74
 								}
 							},
 							{
@@ -928,9 +930,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "LZONE",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 75
 								}
 							},
 							{
@@ -940,9 +942,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "XLFZA",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 76
 								}
 							},
 							{
@@ -952,9 +954,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "DLGRP",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 77
 								}
 							},
 							{
@@ -964,9 +966,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "FITYP",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 78
 								}
 							},
 							{
@@ -976,9 +978,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STCDT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 79
 								}
 							},
 							{
@@ -988,9 +990,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "REGSS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 80
 								}
 							},
 							{
@@ -1000,9 +1002,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "ACTSS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 81
 								}
 							},
 							{
@@ -1012,9 +1014,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STCD3",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 82
 								}
 							},
 							{
@@ -1024,9 +1026,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STCD4",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 83
 								}
 							},
 							{
@@ -1036,9 +1038,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STCD5",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 84
 								}
 							},
 							{
@@ -1048,9 +1050,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "IPISP",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 85
 								}
 							},
 							{
@@ -1060,9 +1062,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TAXBS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 86
 								}
 							},
 							{
@@ -1072,9 +1074,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PROFS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 87
 								}
 							},
 							{
@@ -1084,9 +1086,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STGDL",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 88
 								}
 							},
 							{
@@ -1096,9 +1098,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "EMNFR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 89
 								}
 							},
 							{
@@ -1108,9 +1110,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "LFURL",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 90
 								}
 							},
 							{
@@ -1120,9 +1122,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "J_1KFREPRE",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 91
 								}
 							},
 							{
@@ -1132,9 +1134,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "J_1KFTBUS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 92
 								}
 							},
 							{
@@ -1144,9 +1146,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "J_1KFTIND",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 93
 								}
 							},
 							{
@@ -1156,9 +1158,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "CONFS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 94
 								}
 							},
 							{
@@ -1168,9 +1170,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "UPDAT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 95
 								}
 							},
 							{
@@ -1180,9 +1182,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "UPTIM",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 96
 								}
 							},
 							{
@@ -1192,9 +1194,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "NODEL",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 97
 								}
 							},
 							{
@@ -1204,9 +1206,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "QSSYSDAT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 98
 								}
 							},
 							{
@@ -1216,9 +1218,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PODKZB",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 99
 								}
 							},
 							{
@@ -1228,9 +1230,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "FISKU",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 100
 								}
 							},
 							{
@@ -1240,9 +1242,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "STENR",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 101
 								}
 							},
 							{
@@ -1252,9 +1254,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "CARRIER_CONF",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 102
 								}
 							},
 							{
@@ -1264,9 +1266,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "MIN_COMP",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 103
 								}
 							},
 							{
@@ -1276,9 +1278,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TERM_LI",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 104
 								}
 							},
 							{
@@ -1288,9 +1290,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "CRC_NUM",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 105
 								}
 							},
 							{
@@ -1300,9 +1302,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "CVP_XBLCK",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 106
 								}
 							},
 							{
@@ -1312,9 +1314,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "RG",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 107
 								}
 							},
 							{
@@ -1324,9 +1326,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "EXP",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 108
 								}
 							},
 							{
@@ -1336,9 +1338,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "UF",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 109
 								}
 							},
 							{
@@ -1348,9 +1350,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "RGDATE",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 110
 								}
 							},
 							{
@@ -1360,9 +1362,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "RIC",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 111
 								}
 							},
 							{
@@ -1372,9 +1374,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "RNE",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 112
 								}
 							},
 							{
@@ -1384,9 +1386,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "RNEDATE",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 113
 								}
 							},
 							{
@@ -1396,9 +1398,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "CNAE",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 114
 								}
 							},
 							{
@@ -1408,9 +1410,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "LEGALNAT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 115
 								}
 							},
 							{
@@ -1420,9 +1422,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "CRTN",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 116
 								}
 							},
 							{
@@ -1432,9 +1434,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "ICMSTAXPAY",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 117
 								}
 							},
 							{
@@ -1444,9 +1446,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "INDTYP",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 118
 								}
 							},
 							{
@@ -1456,9 +1458,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TDT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 119
 								}
 							},
 							{
@@ -1468,9 +1470,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "COMSIZE",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 120
 								}
 							},
 							{
@@ -1480,9 +1482,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "DECREGPC",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 121
 								}
 							},
 							{
@@ -1494,9 +1496,9 @@
 									"precision": 15
 								},
 								"sink": {
-									"name": "J_SC_CAPITAL",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "String",
+									"physicalType": "String",
+									"ordinal": 122
 								}
 							},
 							{
@@ -1506,9 +1508,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "J_SC_CURRENCY",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 123
 								}
 							},
 							{
@@ -1518,9 +1520,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "ALC",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 124
 								}
 							},
 							{
@@ -1530,9 +1532,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PMT_OFFICE",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 125
 								}
 							},
 							{
@@ -1542,9 +1544,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PPA_RELEVANT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 126
 								}
 							},
 							{
@@ -1554,9 +1556,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSOFG",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 127
 								}
 							},
 							{
@@ -1566,9 +1568,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSOIS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 128
 								}
 							},
 							{
@@ -1578,9 +1580,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSON1",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 129
 								}
 							},
 							{
@@ -1590,9 +1592,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSON2",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 130
 								}
 							},
 							{
@@ -1602,9 +1604,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSON3",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 131
 								}
 							},
 							{
@@ -1614,9 +1616,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSOVN",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 132
 								}
 							},
 							{
@@ -1626,9 +1628,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSOTL",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 133
 								}
 							},
 							{
@@ -1638,9 +1640,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSOHS",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 134
 								}
 							},
 							{
@@ -1650,9 +1652,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "PSOST",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 135
 								}
 							},
 							{
@@ -1662,9 +1664,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "TRANSPORT_CHAIN",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 136
 								}
 							},
 							{
@@ -1676,9 +1678,9 @@
 									"precision": 3
 								},
 								"sink": {
-									"name": "STAGING_TIME",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "String",
+									"physicalType": "String",
+									"ordinal": 137
 								}
 							},
 							{
@@ -1688,9 +1690,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SCHEDULING_TYPE",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 138
 								}
 							},
 							{
@@ -1700,9 +1702,9 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "SUBMI_RELEVANT",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "String",
+									"ordinal": 139
 								}
 							}
 						],
@@ -1721,7 +1723,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_DIM_PROVEEDORE",
+						"referenceName": "DS_DIM_PROV",
 						"type": "DatasetReference"
 					}
 				]
