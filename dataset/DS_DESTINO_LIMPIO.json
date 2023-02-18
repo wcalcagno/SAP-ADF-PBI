@@ -1,0 +1,24 @@
+{
+	"name": "DS_DESTINO_LIMPIO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Destinos"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "data_limpia.snappy.parquet",
+				"folderPath": "oscarp",
+				"fileSystem": "refined"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
