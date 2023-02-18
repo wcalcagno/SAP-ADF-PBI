@@ -13,6 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "ft_inv_purch.csv",
 				"folderPath": "instructor",
 				"fileSystem": "raw"
 			},
