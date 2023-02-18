@@ -22,6 +22,563 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "MANDT",
+				"type": "String"
+			},
+			{
+				"name": "LIFNR",
+				"type": "String"
+			},
+			{
+				"name": "LAND1",
+				"type": "String"
+			},
+			{
+				"name": "NAME1",
+				"type": "String"
+			},
+			{
+				"name": "NAME2",
+				"type": "String"
+			},
+			{
+				"name": "NAME3",
+				"type": "String"
+			},
+			{
+				"name": "NAME4",
+				"type": "String"
+			},
+			{
+				"name": "ORT01",
+				"type": "String"
+			},
+			{
+				"name": "ORT02",
+				"type": "String"
+			},
+			{
+				"name": "PFACH",
+				"type": "String"
+			},
+			{
+				"name": "PSTL2",
+				"type": "String"
+			},
+			{
+				"name": "PSTLZ",
+				"type": "String"
+			},
+			{
+				"name": "REGIO",
+				"type": "String"
+			},
+			{
+				"name": "SORTL",
+				"type": "String"
+			},
+			{
+				"name": "STRAS",
+				"type": "String"
+			},
+			{
+				"name": "ADRNR",
+				"type": "String"
+			},
+			{
+				"name": "MCOD1",
+				"type": "String"
+			},
+			{
+				"name": "MCOD2",
+				"type": "String"
+			},
+			{
+				"name": "MCOD3",
+				"type": "String"
+			},
+			{
+				"name": "ANRED",
+				"type": "String"
+			},
+			{
+				"name": "BAHNS",
+				"type": "String"
+			},
+			{
+				"name": "BBBNR",
+				"type": "String"
+			},
+			{
+				"name": "BBSNR",
+				"type": "String"
+			},
+			{
+				"name": "BEGRU",
+				"type": "String"
+			},
+			{
+				"name": "BRSCH",
+				"type": "String"
+			},
+			{
+				"name": "BUBKZ",
+				"type": "String"
+			},
+			{
+				"name": "DATLT",
+				"type": "String"
+			},
+			{
+				"name": "DTAMS",
+				"type": "String"
+			},
+			{
+				"name": "DTAWS",
+				"type": "String"
+			},
+			{
+				"name": "ERDAT",
+				"type": "String"
+			},
+			{
+				"name": "ERNAM",
+				"type": "String"
+			},
+			{
+				"name": "ESRNR",
+				"type": "String"
+			},
+			{
+				"name": "KONZS",
+				"type": "String"
+			},
+			{
+				"name": "KTOKK",
+				"type": "String"
+			},
+			{
+				"name": "KUNNR",
+				"type": "String"
+			},
+			{
+				"name": "LNRZA",
+				"type": "String"
+			},
+			{
+				"name": "LOEVM",
+				"type": "String"
+			},
+			{
+				"name": "SPERR",
+				"type": "String"
+			},
+			{
+				"name": "SPERM",
+				"type": "String"
+			},
+			{
+				"name": "SPRAS",
+				"type": "String"
+			},
+			{
+				"name": "STCD1",
+				"type": "String"
+			},
+			{
+				"name": "STCD2",
+				"type": "String"
+			},
+			{
+				"name": "STKZA",
+				"type": "String"
+			},
+			{
+				"name": "STKZU",
+				"type": "String"
+			},
+			{
+				"name": "TELBX",
+				"type": "String"
+			},
+			{
+				"name": "TELF1",
+				"type": "String"
+			},
+			{
+				"name": "TELF2",
+				"type": "String"
+			},
+			{
+				"name": "TELFX",
+				"type": "String"
+			},
+			{
+				"name": "TELTX",
+				"type": "String"
+			},
+			{
+				"name": "TELX1",
+				"type": "String"
+			},
+			{
+				"name": "XCPDK",
+				"type": "String"
+			},
+			{
+				"name": "XZEMP",
+				"type": "String"
+			},
+			{
+				"name": "VBUND",
+				"type": "String"
+			},
+			{
+				"name": "FISKN",
+				"type": "String"
+			},
+			{
+				"name": "STCEG",
+				"type": "String"
+			},
+			{
+				"name": "STKZN",
+				"type": "String"
+			},
+			{
+				"name": "SPERQ",
+				"type": "String"
+			},
+			{
+				"name": "GBORT",
+				"type": "String"
+			},
+			{
+				"name": "GBDAT",
+				"type": "String"
+			},
+			{
+				"name": "SEXKZ",
+				"type": "String"
+			},
+			{
+				"name": "KRAUS",
+				"type": "String"
+			},
+			{
+				"name": "REVDB",
+				"type": "String"
+			},
+			{
+				"name": "QSSYS",
+				"type": "String"
+			},
+			{
+				"name": "KTOCK",
+				"type": "String"
+			},
+			{
+				"name": "PFORT",
+				"type": "String"
+			},
+			{
+				"name": "WERKS",
+				"type": "String"
+			},
+			{
+				"name": "LTSNA",
+				"type": "String"
+			},
+			{
+				"name": "WERKR",
+				"type": "String"
+			},
+			{
+				"name": "PLKAL",
+				"type": "String"
+			},
+			{
+				"name": "DUEFL",
+				"type": "String"
+			},
+			{
+				"name": "TXJCD",
+				"type": "String"
+			},
+			{
+				"name": "SPERZ",
+				"type": "String"
+			},
+			{
+				"name": "SCACD",
+				"type": "String"
+			},
+			{
+				"name": "SFRGR",
+				"type": "String"
+			},
+			{
+				"name": "LZONE",
+				"type": "String"
+			},
+			{
+				"name": "XLFZA",
+				"type": "String"
+			},
+			{
+				"name": "DLGRP",
+				"type": "String"
+			},
+			{
+				"name": "FITYP",
+				"type": "String"
+			},
+			{
+				"name": "STCDT",
+				"type": "String"
+			},
+			{
+				"name": "REGSS",
+				"type": "String"
+			},
+			{
+				"name": "ACTSS",
+				"type": "String"
+			},
+			{
+				"name": "STCD3",
+				"type": "String"
+			},
+			{
+				"name": "STCD4",
+				"type": "String"
+			},
+			{
+				"name": "STCD5",
+				"type": "String"
+			},
+			{
+				"name": "IPISP",
+				"type": "String"
+			},
+			{
+				"name": "TAXBS",
+				"type": "String"
+			},
+			{
+				"name": "PROFS",
+				"type": "String"
+			},
+			{
+				"name": "STGDL",
+				"type": "String"
+			},
+			{
+				"name": "EMNFR",
+				"type": "String"
+			},
+			{
+				"name": "LFURL",
+				"type": "String"
+			},
+			{
+				"name": "J_1KFREPRE",
+				"type": "String"
+			},
+			{
+				"name": "J_1KFTBUS",
+				"type": "String"
+			},
+			{
+				"name": "J_1KFTIND",
+				"type": "String"
+			},
+			{
+				"name": "CONFS",
+				"type": "String"
+			},
+			{
+				"name": "UPDAT",
+				"type": "String"
+			},
+			{
+				"name": "UPTIM",
+				"type": "String"
+			},
+			{
+				"name": "NODEL",
+				"type": "String"
+			},
+			{
+				"name": "QSSYSDAT",
+				"type": "String"
+			},
+			{
+				"name": "PODKZB",
+				"type": "String"
+			},
+			{
+				"name": "FISKU",
+				"type": "String"
+			},
+			{
+				"name": "STENR",
+				"type": "String"
+			},
+			{
+				"name": "CARRIER_CONF",
+				"type": "String"
+			},
+			{
+				"name": "MIN_COMP",
+				"type": "String"
+			},
+			{
+				"name": "TERM_LI",
+				"type": "String"
+			},
+			{
+				"name": "CRC_NUM",
+				"type": "String"
+			},
+			{
+				"name": "CVP_XBLCK",
+				"type": "String"
+			},
+			{
+				"name": "RG",
+				"type": "String"
+			},
+			{
+				"name": "EXP",
+				"type": "String"
+			},
+			{
+				"name": "UF",
+				"type": "String"
+			},
+			{
+				"name": "RGDATE",
+				"type": "String"
+			},
+			{
+				"name": "RIC",
+				"type": "String"
+			},
+			{
+				"name": "RNE",
+				"type": "String"
+			},
+			{
+				"name": "RNEDATE",
+				"type": "String"
+			},
+			{
+				"name": "CNAE",
+				"type": "String"
+			},
+			{
+				"name": "LEGALNAT",
+				"type": "String"
+			},
+			{
+				"name": "CRTN",
+				"type": "String"
+			},
+			{
+				"name": "ICMSTAXPAY",
+				"type": "String"
+			},
+			{
+				"name": "INDTYP",
+				"type": "String"
+			},
+			{
+				"name": "TDT",
+				"type": "String"
+			},
+			{
+				"name": "COMSIZE",
+				"type": "String"
+			},
+			{
+				"name": "DECREGPC",
+				"type": "String"
+			},
+			{
+				"name": "J_SC_CAPITAL",
+				"type": "String"
+			},
+			{
+				"name": "J_SC_CURRENCY",
+				"type": "String"
+			},
+			{
+				"name": "ALC",
+				"type": "String"
+			},
+			{
+				"name": "PMT_OFFICE",
+				"type": "String"
+			},
+			{
+				"name": "PPA_RELEVANT",
+				"type": "String"
+			},
+			{
+				"name": "PSOFG",
+				"type": "String"
+			},
+			{
+				"name": "PSOIS",
+				"type": "String"
+			},
+			{
+				"name": "PSON1",
+				"type": "String"
+			},
+			{
+				"name": "PSON2",
+				"type": "String"
+			},
+			{
+				"name": "PSON3",
+				"type": "String"
+			},
+			{
+				"name": "PSOVN",
+				"type": "String"
+			},
+			{
+				"name": "PSOTL",
+				"type": "String"
+			},
+			{
+				"name": "PSOHS",
+				"type": "String"
+			},
+			{
+				"name": "PSOST",
+				"type": "String"
+			},
+			{
+				"name": "TRANSPORT_CHAIN",
+				"type": "String"
+			},
+			{
+				"name": "STAGING_TIME",
+				"type": "String"
+			},
+			{
+				"name": "SCHEDULING_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "SUBMI_RELEVANT",
+				"type": "String"
+			}
+		]
 	}
 }
