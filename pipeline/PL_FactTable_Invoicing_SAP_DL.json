@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT\n    DT.FKDAT AS FECHA_FACTURACION,\n    DT.MENGE AS CANTIDAD_VENDIDA,\n    DT.FAKWR AS MONTO_FACTURADO,\n    LFA1.NAME1 AS NOMBRE_PROVEEDOR\nFROM\n    gta.INV_HEADER HD\n    INNER JOIN gta.INVOICING DT ON HD.FPLNR = DT.FPLNR\n    LEFT JOIN gta.KNB1 KNB1 ON DT.BUKRS = KNB1.BUKRS\n    LEFT JOIN gta.LFA1 LFA1 ON DT.LIFNR = LFA1.LIFNR",
+						"sqlReaderQuery": "SELECT\n    DT.FKDAT AS FECHA_FACTURACION,\n    DT.MENGE AS CANTIDAD,\n    DT.FAKWR AS MONTO_FACTURADO,\n    LFA1.NAME1 AS NOMBRE_PROVEEDOR\nFROM\n    gta.INV_HEADER HD\n    INNER JOIN gta.INVOICING DT ON HD.FPLNR = DT.FPLNR\n    LEFT JOIN gta.KNB1 KNB1 ON DT.BUKRS = KNB1.BUKRS\n    LEFT JOIN gta.LFA1 LFA1 ON DT.LIFNR = LFA1.LIFNR",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -35,6 +35,60 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "FECHA_FACTURACION",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "FECHA_FACTURACION",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CANTIDAD",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 3,
+									"precision": 13
+								},
+								"sink": {
+									"name": "CANTIDAD",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MONTO_FACTURADO",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 15
+								},
+								"sink": {
+									"name": "MONTO_FACTURADO",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NOMBRE_PROVEEDOR",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "NOMBRE_PROVEEDOR",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
