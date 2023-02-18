@@ -15,7 +15,7 @@
 				"type": "AzureBlobFSLocation",
 				"fileName": "ft_inv_purch",
 				"folderPath": "yeivisb",
-				"fileSystem": "raw"
+				"fileSystem": "refined"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
