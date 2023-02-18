@@ -2,7 +2,7 @@
 	"name": "DS_SAP_V01",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SqlServer1",
+			"referenceName": "ls_sap_server",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
