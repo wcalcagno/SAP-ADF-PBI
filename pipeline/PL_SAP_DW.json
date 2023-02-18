@@ -103,7 +103,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_tabla_2",
+						"referenceName": "DS_ORIGEN_QUERY",
 						"type": "DatasetReference"
 					}
 				],
