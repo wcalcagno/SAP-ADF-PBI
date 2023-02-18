@@ -14,7 +14,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@concat(\n    'ft_inv_purch_',\n    substring(\n    utcnow() , 1 , 10) ,\n    '.csv'\n)",
+					"value": "@concat(\n    'ft_inv_purch_',\n    substring(\n    utcnow() , 0 , 10) ,\n    '.csv'\n)",
 					"type": "Expression"
 				},
 				"folderPath": "instructor",
