@@ -1,0 +1,75 @@
+{
+	"name": "DS_ORIGEN_QUERY",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sap_server",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Origenes"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "MANDT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "JEVENTID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "VBELN",
+				"type": "nvarchar"
+			},
+			{
+				"name": "POSNR",
+				"type": "nvarchar"
+			},
+			{
+				"name": "VERSION",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PHASEMDL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PHASENBR",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MEDIAISSUE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "STATUS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CHANGE_PERCENT",
+				"type": "decimal",
+				"precision": 5,
+				"scale": 2
+			},
+			{
+				"name": "CHANGE_ABS",
+				"type": "decimal",
+				"precision": 8,
+				"scale": 0
+			},
+			{
+				"name": "QUAN_ORIGIN",
+				"type": "decimal",
+				"precision": 13,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "gta",
+			"table": "KNB1"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

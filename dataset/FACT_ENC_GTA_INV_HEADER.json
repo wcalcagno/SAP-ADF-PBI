@@ -5,6 +5,9 @@
 			"referenceName": "ls_sap_server",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Referencias"
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [
