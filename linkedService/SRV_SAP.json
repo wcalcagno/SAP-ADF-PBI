@@ -1,0 +1,10 @@
+{
+	"name": "SRV_SAP",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://SAPSERVER.vault.azure.net/"
+		}
+	}
+}
