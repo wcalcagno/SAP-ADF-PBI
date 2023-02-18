@@ -1,0 +1,638 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "AdfPrincipalTallerSAP"
+		},
+		"SqlServer1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServer1'",
+			"defaultValue": "Integrated Security=True;Data Source=WINSRVIDES;Initial Catalog=GTA"
+		},
+		"SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
+		"ls_datalake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_datalake'"
+		},
+		"ls_sap_server_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sap_server'",
+			"defaultValue": "Integrated Security=True;Data Source=WINSRVIDES;Initial Catalog=GTA"
+		},
+		"ls_sap_server_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_sap_server'"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "WINSRVIDES\\gtaadm"
+		},
+		"ls_datalake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tallersap.dfs.core.windows.net/"
+		},
+		"ls_sap_server_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "WINSRVIDES\\gtaadm"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_SAP_DW')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "desde SAP a DL",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_SAP_V01",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DelimitedText1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "QUERY SAP A DL",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "desde SAP a DL",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT\n    DT.FKDAT AS FECHA_FACTURACION,\n    DT.MENGE AS CANTIDAD_VENDIDA,\n    DT.FAKWR AS MONTO_FACTURADO,\n    LFA1.NAME1 AS NOMBRE_PROVEEDOR\nFROM\n    gta.INV_HEADER HD\n    INNER JOIN gta.INVOICING DT ON HD.FPLNR = DT.FPLNR\n    LEFT JOIN gta.KNB1 KNB1 ON DT.BUKRS = KNB1.BUKRS\n    LEFT JOIN gta.LFA1 LFA1 ON DT.LIFNR = LFA1.LIFNR",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ds_tabla_2",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DelimitedText1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2023-02-18T04:34:06Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DS_SAP_V01')]",
+				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]",
+				"[concat(variables('factoryId'), '/datasets/ds_tabla_2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DET_FACT_GTA_INVOICING')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sap_server",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "BNAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PERSNUMBER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NAME_TEXT",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "gta",
+					"table": "INVOICING"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_sap_server')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DIM_CLIENTES_GTA_KNB1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sap_server",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "BNAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PERSNUMBER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NAME_TEXT",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "gta",
+					"table": "KNB1"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_sap_server')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DIM_PRODUCTOS_GTA_MARA')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sap_server",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "BNAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PERSNUMBER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NAME_TEXT",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "gta",
+					"table": "MARA"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_sap_server')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DIM_PROV_GTA_LFA1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sap_server",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "BNAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PERSNUMBER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NAME_TEXT",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "gta",
+					"table": "LFA1"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_sap_server')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SAP_V01')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sap_server",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "BNAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PERSNUMBER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NAME_TEXT",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "gta",
+					"table": "KNB1"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_sap_server')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_datalake",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "dato1.csv",
+						"folderPath": "SAP",
+						"fileSystem": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_datalake')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/FACT_ENC_GTA_INV_HEADER')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sap_server",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "BNAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PERSNUMBER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NAME_TEXT",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "gta",
+					"table": "INV_HEADER"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_sap_server')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/csv2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_datalake",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "dato2csv",
+						"folderPath": "SAP",
+						"fileSystem": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_datalake')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_tabla_2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sap_server",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "MANDT",
+						"type": "nvarchar"
+					},
+					{
+						"name": "JEVENTID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "VBELN",
+						"type": "nvarchar"
+					},
+					{
+						"name": "POSNR",
+						"type": "nvarchar"
+					},
+					{
+						"name": "VERSION",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PHASEMDL",
+						"type": "nvarchar"
+					},
+					{
+						"name": "PHASENBR",
+						"type": "nvarchar"
+					},
+					{
+						"name": "MEDIAISSUE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "STATUS",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CHANGE_PERCENT",
+						"type": "decimal",
+						"precision": 5,
+						"scale": 2
+					},
+					{
+						"name": "CHANGE_ABS",
+						"type": "decimal",
+						"precision": 8,
+						"scale": 0
+					},
+					{
+						"name": "QUAN_ORIGIN",
+						"type": "decimal",
+						"precision": 13,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "gta",
+					"table": "JKSDPLANQEVENTEX"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_sap_server')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SqlServer1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('SqlServer1_connectionString')]",
+					"userName": "[parameters('SqlServer1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SqlServer1_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IR-SAP-dyanalias",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/IR-SAP-dyanalias')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_datalake')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_datalake_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_datalake_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_sap_server')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('ls_sap_server_connectionString')]",
+					"userName": "[parameters('ls_sap_server_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('ls_sap_server_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IR-SAP-dyanalias",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/IR-SAP-dyanalias')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Gatillador1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "PL_SAP_DW",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2023-02-12T12:35:00Z",
+						"timeZone": "UTC",
+						"schedule": {
+							"minutes": [
+								15
+							],
+							"hours": [
+								3,
+								15
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_SAP_DW')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/IR-SAP-dyanalias')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		}
+	]
+}
