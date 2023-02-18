@@ -13,7 +13,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "ft_inv_purch.csv",
+				"fileName": {
+					"value": "@concat(\n    'ft_inv_purch_',\n    utcnow() ,\n    '.csv'\n)",
+					"type": "Expression"
+				},
 				"folderPath": "instructor",
 				"fileSystem": "raw"
 			},
