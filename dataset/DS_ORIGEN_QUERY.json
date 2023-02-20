@@ -1,0 +1,19 @@
+{
+	"name": "DS_ORIGEN_QUERY",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sap_server",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Origenes"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "gta",
+			"table": "KNA1"
+		}
+	}
+}
