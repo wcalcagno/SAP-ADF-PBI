@@ -29,7 +29,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".CSV"
+							"fileExtension": ".csv"
 						}
 					},
 					"enableStaging": false,
