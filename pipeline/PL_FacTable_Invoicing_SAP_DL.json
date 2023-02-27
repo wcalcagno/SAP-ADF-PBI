@@ -104,7 +104,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_DESTINO_DLAKE_2",
+						"referenceName": "DelimitedText2",
 						"type": "DatasetReference"
 					}
 				]
