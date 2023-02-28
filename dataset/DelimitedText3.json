@@ -13,6 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "gta.JKSDPLANQEVENTEX.CSV",
 				"folderPath": "DavidHernanz",
 				"fileSystem": "raw"
 			},
@@ -21,6 +22,55 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "MANDT",
+				"type": "String"
+			},
+			{
+				"name": "JEVENTID",
+				"type": "String"
+			},
+			{
+				"name": "VBELN",
+				"type": "String"
+			},
+			{
+				"name": "POSNR",
+				"type": "String"
+			},
+			{
+				"name": "VERSION",
+				"type": "String"
+			},
+			{
+				"name": "PHASEMDL",
+				"type": "String"
+			},
+			{
+				"name": "PHASENBR",
+				"type": "String"
+			},
+			{
+				"name": "MEDIAISSUE",
+				"type": "String"
+			},
+			{
+				"name": "STATUS",
+				"type": "String"
+			},
+			{
+				"name": "CHANGE_PERCENT",
+				"type": "String"
+			},
+			{
+				"name": "CHANGE_ABS",
+				"type": "String"
+			},
+			{
+				"name": "QUAN_ORIGIN",
+				"type": "String"
+			}
+		]
 	}
 }
