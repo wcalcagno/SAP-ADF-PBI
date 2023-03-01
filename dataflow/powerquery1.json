@@ -1,0 +1,20 @@
+{
+	"name": "powerquery1",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "DelimitedText3",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~>  DelimitedText3",
+					"dataset": {
+						"referenceName": "DelimitedText3",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared DelimitedText3 = let AdfDoc = AzureStorage.DataLakeContents(\"https://tallersap.dfs.core.windows.net/raw/DavidHernanz/gta.JKSDPLANQEVENTEX.CSV\"),Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]), PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]) in  PromotedHeaders;\r\nshared UserQuery = let Source = #\"DelimitedText3\",\r\n  #\"Merged queries\" = Table.NestedJoin(Source, {\"MANDT\"}, Query, {\"MANDT\"}, \"Query\", JoinKind.LeftOuter),\r\n  #\"Expanded Query\" = Table.ExpandTableColumn(#\"Merged queries\", \"Query\", {\"EGREGAR\"}, {\"EGREGAR\"}) in #\"Expanded Query\";\r\nshared Query = let\r\n  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i45WyivNyVHSUTJUio0FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [MANDT = _t, EGREGAR = _t])\r\nin\r\n  Source;\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}
