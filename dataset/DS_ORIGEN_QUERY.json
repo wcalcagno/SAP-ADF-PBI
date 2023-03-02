@@ -2,7 +2,7 @@
 	"name": "DS_ORIGEN_QUERY",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_sap_server",
+			"referenceName": "SqlServer1",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
