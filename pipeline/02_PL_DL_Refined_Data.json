@@ -109,7 +109,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "03_DS_DESTINO_Trusted_Data_SAP",
+						"referenceName": "02_DS_DESTINO_Refined_Data_SAP",
 						"type": "DatasetReference"
 					}
 				]
