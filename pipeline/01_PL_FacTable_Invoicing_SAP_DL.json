@@ -1,5 +1,5 @@
 {
-	"name": "PL_FacTable_Invoicing_SAP_DL",
+	"name": "01_PL_FacTable_Invoicing_SAP_DL",
 	"properties": {
 		"activities": [
 			{
@@ -104,7 +104,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText3",
+						"referenceName": "01_DS_DESTINO_RAW_Data_SAP",
 						"type": "DatasetReference"
 					}
 				]

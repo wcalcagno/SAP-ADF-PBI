@@ -1,5 +1,5 @@
 {
-	"name": "02_PL_DL_Refined_Data",
+	"name": "03_PL_DL_Trusted_Data",
 	"properties": {
 		"activities": [
 			{
@@ -16,15 +16,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT \nDT.FKDAT AS FECHA_FACTURACION,\nDT.MENGE AS CANTIDAD,\nDT.FAKWR AS MONTO_FACTURADO,\nLFA1.NAME1 AS NOMBRE_PROVEEDOR\n\nFROM\n\ngta.INV_HEADER HD\nINNER JOIN gta.INVOICING DT ON HD.FPLNR = DT.FPLNR \nLEFT JOIN gta.KNB1 ON DT.BUKRS = KNB1.BUKRS\nLEFT JOIN gta.LFA1 ON DT.LIFNR = LFA1.LIFNR",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
@@ -103,13 +98,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "01_DS_ORIGEN_Raw_Data_SAP",
+						"referenceName": "DS_ORIGEN_QUERY",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "03_DS_DESTINO_Trusted_Data_SAP",
+						"referenceName": "DS_DESTINO_DLAKE",
 						"type": "DatasetReference"
 					}
 				]

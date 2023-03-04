@@ -6,9 +6,9 @@
 			"sources": [
 				{
 					"name": "DelimitedText3",
-					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~>  DelimitedText3",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> DelimitedText3",
 					"dataset": {
-						"referenceName": "DelimitedText3",
+						"referenceName": "01_DS_DESTINO_RAW_Data_SAP",
 						"type": "DatasetReference"
 					}
 				}
