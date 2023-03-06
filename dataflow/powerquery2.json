@@ -1,0 +1,20 @@
+{
+	"name": "powerquery2",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "01_DS_DESTINO_RAW_Data_SAP",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~>  01_DS_DESTINO_RAW_Data_SAP",
+					"dataset": {
+						"referenceName": "01_DS_DESTINO_RAW_Data_SAP",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared #\"01_DS_DESTINO_RAW_Data_SAP\" = let AdfDoc = AzureStorage.DataLakeContents(\"https://tallersap.dfs.core.windows.net/raw/DavidHernanz/data_5225e316-f106-43f2-b73c-463b2ae210bc_d2b7d506-8848-4a65-aa2f-0289f59e0fbe.csv\"),Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]), PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]) in  PromotedHeaders;\r\nshared UserQuery = let Source = #\"01_DS_DESTINO_RAW_Data_SAP\" in Source;\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}
