@@ -1,0 +1,22 @@
+{
+	"name": "min_ciencia2",
+	"properties": {
+		"Name": "min_ciencia2",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://gold@adlswaltercalcagno.dfs.core.windows.net/min_ciencia2",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "walter-calcagno-synapse-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
