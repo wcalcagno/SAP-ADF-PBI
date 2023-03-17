@@ -20,7 +20,7 @@
 						"IsComplexType": false,
 						"IsNullable": true,
 						"Properties": {
-							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff",
+							"TimestampFormat": "yyyy.MM.dd HH:mm:ss",
 							"HIVE_TYPE_STRING": "timestamp"
 						}
 					},
