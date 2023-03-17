@@ -7,7 +7,7 @@
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "min_ciencia",
+				"databaseName": "Database1",
 				"poolName": "Built-in"
 			},
 			"resultLimit": 5000
