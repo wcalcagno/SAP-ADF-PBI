@@ -1,0 +1,22 @@
+{
+	"name": "adls_wcl",
+	"properties": {
+		"Name": "adls_wcl",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://gold@adlswaltercalcagno.dfs.core.windows.net/adls_wcl",
+			"Properties": {
+				"FormatType": "parquet",
+				"LinkedServiceName": "walter-calcagno-synapse-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
