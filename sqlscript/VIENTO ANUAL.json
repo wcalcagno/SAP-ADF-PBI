@@ -1,0 +1,17 @@
+{
+	"name": "VIENTO ANUAL",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n   anno , \n   avg (dd_Valor) as ddvalor,\n   avg(ff_valor) as ffvalor\nFROM\n    OPENROWSET(\n        BULK 'https://adlswaltercalcagno.dfs.core.windows.net/gold/viento/**',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nGROUP BY anno  order by anno ASC\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
