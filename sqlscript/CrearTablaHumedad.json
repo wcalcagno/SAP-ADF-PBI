@@ -8,7 +8,7 @@
 			},
 			"currentConnection": {
 				"databaseName": "cambio_climatico",
-				"poolName": "Integrado"
+				"poolName": "Built-in"
 			},
 			"resultLimit": 5000
 		},
