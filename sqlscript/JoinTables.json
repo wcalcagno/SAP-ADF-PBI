@@ -1,0 +1,17 @@
+{
+	"name": "JoinTables",
+	"properties": {
+		"content": {
+			"query": "SELECT \n t1.anno , \n avg(HR_valor) as HR ,\n avg(t2.dd_valor) as DD\nFROM dbo.humedad t1 \nLEFT JOIN dbo.viento t2 ON  t1.time = t2.time AND t1.CodigoNacional=t2.CodigoNAcional \nGROUP by T1.ANNO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "cambio_climatico",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
