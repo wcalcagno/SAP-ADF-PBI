@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 3",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    FORMAT(time, 'yyyy-MM') as periodo,\n    avg(HR_Valor) as humedad_promedio\nFROM\n    OPENROWSET(\n        BULK 'https://adlswaltercalcagno.dfs.core.windows.net/gold/humedad/humedad.snappy.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nGROUP BY FORMAT(time, 'yyyy-MM')",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

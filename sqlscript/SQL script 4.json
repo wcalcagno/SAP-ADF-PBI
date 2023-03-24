@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 4",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    anno , \n    AVG(cast(dd_valor as decimal)) as ddvalor ,\n    AVG(cast(ff_valor as decimal)) as ffvalor\nFROM\n    OPENROWSET(\n        BULK 'https://adlswaltercalcagno.dfs.core.windows.net/gold/viento/**',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nGROUP by anno  order by anno DESC",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
