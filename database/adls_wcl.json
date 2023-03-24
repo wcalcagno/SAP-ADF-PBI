@@ -1,7 +1,7 @@
 {
-	"name": "Database1",
+	"name": "adls_wcl",
 	"properties": {
-		"Name": "Database1",
+		"Name": "adls_wcl",
 		"EntityType": "DATABASE",
 		"Origin": {
 			"Type": "SPARK"
@@ -11,15 +11,12 @@
 		},
 		"Source": {
 			"Provider": "ADLS",
-			"Location": "abfss://gold@adlswaltercalcagno.dfs.core.windows.net/",
+			"Location": "abfss://gold@adlswaltercalcagno.dfs.core.windows.net/adls_wcl",
 			"Properties": {
-				"FormatType": "csv",
+				"FormatType": "parquet",
 				"LinkedServiceName": "walter-calcagno-synapse-WorkspaceDefaultStorage"
 			}
-		},
-		"PublishStatus": "PUBLISHED",
-		"ObjectVersion": 9,
-		"ObjectId": "72e512c1-3713-4c18-95ec-998b453860a0"
+		}
 	},
 	"type": "DATABASE"
 }
