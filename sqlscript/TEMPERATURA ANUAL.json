@@ -1,5 +1,5 @@
 {
-	"name": "SQL script 5",
+	"name": "TEMPERATURA ANUAL",
 	"properties": {
 		"content": {
 			"query": "-- This is auto-generated code\nSELECT\n    FORMAT ( time , 'yyyy') as periodo ,\n    avg(ts_valor) as Ts__Valor\nFROM\n    OPENROWSET(\n        BULK 'https://adlswaltercalcagno.dfs.core.windows.net/gold/temperatura/**',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nGROUP BY FORMAT ( time , 'yyyy') ORDER BY FORMAT ( time , 'yyyy') ASC",
